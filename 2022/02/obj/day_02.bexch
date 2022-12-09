@@ -1,0 +1,18 @@
+[GENERATED OBJECT FILE]
+b__day_02.o
+[PROJECT FILES]
+/Users/flintstone/adventOfCode/2022/02/build.gpr
+20221205190356 2c0e09f3e0ad15422ed175e92f39209c
+[BOUND OBJECT FILES]
+/Users/flintstone/adventOfCode/2022/02/obj/day_02.o
+[GENERATED SOURCE FILES]
+b__day_02.ads
+b__day_02.adb
+b__day_02.ali
+[RESULTING OPTIONS]
+-L/Users/flintstone/adventOfCode/2022/02/obj/
+-L/Users/flintstone/adventOfCode/2022/02/obj/
+-L/users/flintstone/opt/gnat/2020/lib/gcc/x86_64-apple-darwin17.7.0/8.4.1/adalib/
+-static
+/users/flintstone/opt/gnat/2020/lib/gcc/x86_64-apple-darwin17.7.0/8.4.1/adalib/libgnarl.a
+/users/flintstone/opt/gnat/2020/lib/gcc/x86_64-apple-darwin17.7.0/8.4.1/adalib/libgnat.a
