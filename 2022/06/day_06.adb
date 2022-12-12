@@ -7,14 +7,14 @@ procedure Day_06 is
     package Char_IO is new Ada.Sequential_IO (Character);
     use Char_IO;
 
-    File                   : Char_IO.File_Type;
-    Start_Of_Packet        : Natural  := 0;
-    Start_Of_Packet_Length : Positive := 4;
+    File                    : Char_IO.File_Type;
+    Start_Of_Packet_Length  : Positive := 4;
+    Start_Of_Message_Length : Positive := 14;
 
-    function Locate_Start_Of_Packet return Natural is
-        Result : Natural := Start_Of_Packet_Length;
+    function Locate_Distinct_Position (Size : Positive) return Natural is
+        Result : Natural := Size;
         C      : Character;
-        Buffer : String (1 .. Start_Of_Packet_Length);
+        Buffer : String (1 .. Size);
 
         function Check_Buffer
            (Char : Character; Buffer : String) return Boolean
@@ -53,11 +53,23 @@ procedure Day_06 is
             Result := Result + 1;
         end loop;
         return Result;
+    end Locate_Distinct_Position;
+
+    function Locate_Start_Of_Packet return Natural is
+    begin
+        return Locate_Distinct_Position (Start_Of_Packet_Length);
     end Locate_Start_Of_Packet;
+
+    function Locate_Start_Of_Message return Natural is
+    begin
+        return Locate_Distinct_Position (Start_Of_Message_Length);
+    end Locate_Start_Of_Message;
 
 begin
     Open (File, In_File, "input.txt");
-    Start_Of_Packet := Locate_Start_Of_Packet;
-    Put_Line ("Start of Packet @" & Start_Of_Packet'Image);
+    Put_Line ("Start of Packet  @" & Locate_Start_Of_Packet'Image);
+    Close (File);
+    Open (File, In_File, "input.txt");
+    Put_Line ("Start of Message @" & Locate_Start_Of_Message'Image);
     Close (File);
 end Day_06;
